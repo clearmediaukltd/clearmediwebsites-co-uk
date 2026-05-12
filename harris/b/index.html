@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davies Print &amp; Embroidery — Custom Printing &amp; Embroidery, Clevedon</title>
+  <meta name="description" content="Davies Print & Embroidery — high-quality custom printing and embroidery for workwear, teamwear and promotional clothing. Based in Clevedon, North Somerset." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* -------------------------------------------------
+       Davies Print & Embroidery — variant
+       Workshop / print-house feel: cream paper, heavy
+       black type, yellow as a highlight stamp.
+    -------------------------------------------------- */
+    :root {
+      --paper: #f4ecd8;
+      --paper-2: #ece2c8;
+      --ink: #111111;
+      --ink-soft: #2a2a2a;
+      --muted: #6b6356;
+      --yellow: #f8c81b;
+      --yellow-deep: #e7b300;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      /* faint paper grain */
+      background-image:
+        radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 4px 4px, 7px 7px;
+      background-position: 0 0, 2px 3px;
+    }
+
+    a { color: var(--ink); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+    .display {
+      font-family: 'Anton', 'Impact', sans-serif;
+      letter-spacing: 0.01em;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+    .mono {
+      font-family: 'DM Mono', 'Courier New', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    /* ---------- TICKER STRIP ---------- */
+    .ticker {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 10px 0;
+      overflow: hidden;
+      border-bottom: 3px solid var(--yellow);
+    }
+    .ticker-track {
+      display: flex;
+      gap: 48px;
+      white-space: nowrap;
+      animation: scroll 38s linear infinite;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .ticker-track span { display: inline-flex; align-items: center; gap: 14px; }
+    .ticker-track .dot { color: var(--yellow); }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Anton', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-brand img { height: 40px; }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--yellow-deep); }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -6px;
+      height: 2px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 80px 0 60px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 60px; right: -120px;
+      width: 480px; height: 480px;
+      background: var(--yellow);
+      border-radius: 50%;
+      filter: blur(0px);
+      opacity: 0.9;
+      z-index: 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 50px;
+      align-items: end;
+    }
+    @media (max-width: 880px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 30px; }
+      .hero::before { width: 320px; height: 320px; top: -80px; right: -100px; }
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-meta .pill {
+      padding: 6px 12px;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      background: var(--paper);
+    }
+
+    h1.hero-title {
+      font-size: clamp(64px, 11vw, 168px);
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    h1 .stamp {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--yellow);
+      padding: 0 16px 6px;
+      transform: rotate(-1.5deg);
+    }
+
+    .hero-lede {
+      max-width: 460px;
+      font-size: 17px;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+    }
+
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 26px;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 2px solid var(--ink);
+      transition: transform .15s ease, background .2s ease, color .2s ease;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--ink); color: var(--paper); }
+    .btn-primary:hover { background: var(--yellow); color: var(--ink); border-color: var(--ink); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--ink); }
+    .btn-ghost { background: transparent; color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--yellow); }
+
+    .hero-logo-wrap {
+      position: relative;
+      background: var(--ink);
+      padding: 32px;
+      transform: rotate(2deg);
+      box-shadow: 12px 12px 0 var(--ink);
+      align-self: center;
+    }
+    .hero-logo-wrap::after {
+      content: "EST. CLEVEDON";
+      position: absolute;
+      top: -14px; left: 20px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      padding: 4px 10px;
+    }
+    .hero-logo-wrap img { width: 100%; max-width: 360px; }
+
+    /* ---------- DIVIDER ---------- */
+    .divider {
+      border-top: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+      padding: 18px 0;
+      background: var(--paper-2);
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .divider .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section { padding: 100px 0; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--ink);
+    }
+
+    .section-title {
+      font-size: clamp(40px, 6vw, 88px);
+      max-width: 12ch;
+      margin-bottom: 24px;
+    }
+    .section-title .hl {
+      background: var(--yellow);
+      padding: 0 8px;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1.5px solid var(--ink);
+      border-left: 1.5px solid var(--ink);
+    }
+    @media (max-width: 720px) { .services-grid { grid-template-columns: 1fr; } }
+    .service {
+      padding: 36px 32px;
+      border-right: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+      position: relative;
+      background: var(--paper);
+      transition: background .2s ease;
+    }
+    .service:hover { background: var(--yellow); }
+    .service .num {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .service h3 {
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .service p { color: var(--ink-soft); max-width: 38ch; }
+
+    /* ---------- MACHINES ---------- */
+    .machines-head {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 720px) { .machines-head { grid-template-columns: 1fr; } }
+    .machines-head p {
+      color: var(--ink-soft);
+      max-width: 48ch;
+    }
+
+    .machine-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 880px) { .machine-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .machine-grid { grid-template-columns: 1fr; } }
+
+    .machine {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      background: var(--paper-2);
+    }
+    .machine.tall { aspect-ratio: 4 / 5.6; }
+    .machine .placeholder {
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          rgba(0,0,0,0.05) 0 14px,
+          transparent 14px 28px
+        );
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px;
+    }
+    .machine .ph-tag {
+      align-self: flex-start;
+      background: var(--ink);
+      color: var(--yellow);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      padding: 5px 9px;
+      text-transform: uppercase;
+    }
+    .machine .ph-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 0.9;
+    }
+    .machine .ph-name small {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* ---------- CATALOGUE BIG CTA ---------- */
+    .catalogue {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .catalogue::before {
+      content: "";
+      position: absolute;
+      bottom: -160px; left: -160px;
+      width: 420px; height: 420px;
+      background: var(--yellow);
+      border-radius: 50%;
+      opacity: 0.25;
+    }
+    .catalogue-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 720px) { .catalogue-inner { grid-template-columns: 1fr; } }
+    .catalogue h2 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(44px, 7vw, 96px);
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+    .catalogue h2 .hl { background: var(--yellow); color: var(--ink); padding: 0 10px; }
+    .catalogue p {
+      color: rgba(244, 236, 216, 0.75);
+      max-width: 40ch;
+      margin-top: 18px;
+    }
+    .catalogue .btn-primary { background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+    .catalogue .btn-primary:hover { background: var(--paper); border-color: var(--paper); box-shadow: 4px 4px 0 var(--yellow); }
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1.5px solid var(--ink);
+      border-left: 1.5px solid var(--ink);
+    }
+    @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-cell {
+      padding: 32px 28px;
+      border-right: 1.5px solid var(--ink);
+      border-bottom: 1.5px solid var(--ink);
+      background: var(--paper);
+    }
+    .contact-cell .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .contact-cell .value {
+      font-family: 'Anton', sans-serif;
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    .contact-cell a { border-bottom: 2px solid var(--yellow); }
+    .contact-cell a:hover { background: var(--yellow); }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .footer-inner a { color: var(--yellow); }
+    .footer-inner a:hover { color: var(--paper); }
+  </style>
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Screen Print <em class="dot">●</em></span>
+      <span>DTF Transfers <em class="dot">●</em></span>
+      <span>Machine Embroidery <em class="dot">●</em></span>
+      <span>Workwear <em class="dot">●</em></span>
+      <span>Teamwear <em class="dot">●</em></span>
+      <span>Promotional Clothing <em class="dot">●</em></span>
+      <span>Clevedon · BS21 <em class="dot">●</em></span>
+      <!-- duplicate for loop -->
+      <span>Screen Print <em class="dot">●</em></span>
+      <span>DTF Transfers <em class="dot">●</em></span>
+      <span>Machine Embroidery <em class="dot">●</em></span>
+      <span>Workwear <em class="dot">●</em></span>
+      <span>Teamwear <em class="dot">●</em></span>
+      <span>Promotional Clothing <em class="dot">●</em></span>
+      <span>Clevedon · BS21 <em class="dot">●</em></span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="logo.png" alt="Davies Print & Embroidery" />
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#machines">Workshop</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-meta">
+          <span class="pill">Est. Clevedon</span>
+          <span>// Print &amp; Stitch since day one</span>
+        </div>
+        <h1 class="display hero-title">
+          Print.<br />
+          Stitch.<br />
+          <span class="stamp">Repeat.</span>
+        </h1>
+        <p class="hero-lede">
+          A Clevedon workshop turning blank garments into the stuff your team,
+          your staff and your customers actually want to wear. In-house printing
+          and embroidery, no compromises.
+        </p>
+        <div class="cta-row">
+          <a href="#catalogue" class="btn btn-primary">Browse Catalogue →</a>
+          <a href="#contact" class="btn btn-ghost">Get a Quote</a>
+        </div>
+      </div>
+      <div class="hero-logo-wrap">
+        <img src="logo.png" alt="Davies Print & Embroidery logo" />
+      </div>
+    </div>
+  </header>
+
+  <!-- DIVIDER STRIP -->
+  <div class="divider">
+    <div class="container">
+      <span>★ In-house printing</span>
+      <span>★ In-house embroidery</span>
+      <span>★ Workwear &amp; teamwear</span>
+      <span>★ Small &amp; large runs</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-label">01 — What we do</div>
+      <h2 class="display section-title">Two crafts. <span class="hl">One roof.</span></h2>
+
+      <div class="services-grid">
+        <div class="service">
+          <div class="num">/01</div>
+          <h3>Garment Printing</h3>
+          <p>Tees, hoodies, polos, hi-vis and more — printed with vibrant, hard-wearing finishes built to live in the wash basket.</p>
+        </div>
+        <div class="service">
+          <div class="num">/02</div>
+          <h3>Machine Embroidery</h3>
+          <p>Sharp, professional stitching on workwear, uniforms, caps and bags. The kind of finish that makes a logo look earned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MACHINES -->
+  <section id="machines" style="background: var(--paper-2); border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);">
+    <div class="container">
+      <div class="machines-head">
+        <div>
+          <div class="section-label">02 — The Workshop</div>
+          <h2 class="display section-title">Inside <span class="hl">our kit.</span></h2>
+        </div>
+        <p>A peek at the presses and embroidery machines that turn artwork files into finished garments. Real photos coming soon — placeholders for now.</p>
+      </div>
+
+      <div class="machine-grid">
+        <!-- swap each .placeholder block for an <img src="…"> when ready -->
+        <figure class="machine tall">
+          <div class="placeholder">
+            <span class="ph-tag">Press 01</span>
+            <div class="ph-name">Heat<br/>Press<small>Image placeholder</small></div>
+          </div>
+        </figure>
+        <figure class="machine">
+          <div class="placeholder">
+            <span class="ph-tag">Stitch 01</span>
+            <div class="ph-name">Embroidery<br/>Machine<small>Image placeholder</small></div>
+          </div>
+        </figure>
+        <figure class="machine">
+          <div class="placeholder">
+            <span class="ph-tag">Print 01</span>
+            <div class="ph-name">Screen<br/>Printer<small>Image placeholder</small></div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGUE CTA -->
+  <section id="catalogue" class="catalogue">
+    <div class="container catalogue-inner">
+      <div>
+        <div class="section-label" style="color: var(--yellow);">03 — The Range</div>
+        <h2>Hundreds of <span class="hl">garments.</span><br/>One catalogue.</h2>
+        <p>Premium tees, branded workwear, soft-shells, hoodies, polos, caps, bags — pick the blank, we'll handle the rest.</p>
+      </div>
+      <div>
+        <a href="#" class="btn btn-primary">Open Catalogue ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">04 — Get in touch</div>
+      <h2 class="display section-title">Let's <span class="hl">talk shop.</span></h2>
+
+      <div class="contact-grid">
+        <div class="contact-cell">
+          <div class="label">Phone</div>
+          <div class="value"><a href="tel:">Add phone</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:">Add email</a></div>
+        </div>
+        <div class="contact-cell">
+          <div class="label">Workshop</div>
+          <div class="value">22a Griffin Rd<br/>Clevedon · BS21 6HH</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Davies Print &amp; Embroidery</div>
+      <div>Sister co. of <a href="https://www.harrissports.co.uk/" target="_blank" rel="noopener">Harris Sports</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

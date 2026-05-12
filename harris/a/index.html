@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davies Print &amp; Embroidery — Custom Printing &amp; Embroidery in Clevedon</title>
+  <meta name="description" content="Davies Print & Embroidery — high-quality custom printing and embroidery for workwear, teamwear and promotional clothing. Based in Clevedon, North Somerset." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* -------------------------------------------------
+       Davies Print & Embroidery — single-page site
+       Palette pulled from the logo: deep black + bright
+       yellow with a soft cream for body copy.
+    -------------------------------------------------- */
+    :root {
+      --black: #0a0a0a;
+      --black-2: #161616;
+      --black-3: #1f1f1f;
+      --yellow: #f8c81b;
+      --yellow-bright: #ffd836;
+      --cream: #f5f1e8;
+      --muted: #b9b3a3;
+      --line: rgba(248, 200, 27, 0.18);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--yellow); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--yellow-bright); }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .display {
+      font-family: 'Bebas Neue', 'Inter', sans-serif;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: var(--yellow);
+    }
+    .nav-brand img { height: 36px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--cream);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 80px 0 100px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at top right, rgba(248, 200, 27, 0.12), transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(248, 200, 27, 0.06), transparent 60%),
+        var(--black);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    }
+
+    .hero-logo {
+      max-width: 560px;
+      width: 100%;
+      filter: drop-shadow(0 18px 40px rgba(248, 200, 27, 0.15));
+    }
+    @media (max-width: 880px) {
+      .hero-logo { margin: 0 auto; max-width: 380px; }
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+
+    h1.hero-title {
+      font-size: clamp(40px, 6vw, 72px);
+      color: var(--cream);
+      margin-bottom: 18px;
+    }
+    h1 .accent { color: var(--yellow); }
+
+    .hero p.lede {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 880px) {
+      .hero p.lede { margin-left: auto; margin-right: auto; }
+    }
+
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    @media (max-width: 880px) { .cta-row { justify-content: center; } }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      box-shadow: 0 8px 24px rgba(248, 200, 27, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--yellow-bright);
+      transform: translateY(-2px);
+      color: var(--black);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(245, 241, 232, 0.25);
+    }
+    .btn-secondary:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section { padding: 90px 0; }
+
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head .eyebrow { margin-bottom: 16px; }
+    .section-head h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--cream);
+    }
+    .section-head h2 .accent { color: var(--yellow); }
+    .section-head p {
+      max-width: 640px;
+      margin: 16px auto 0;
+      color: var(--muted);
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services {
+      background: var(--black-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 720px) { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: var(--black-3);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 36px 32px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--yellow);
+    }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(248, 200, 27, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--yellow);
+    }
+    .service-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--cream);
+    }
+    .service-card p { color: var(--muted); font-size: 15px; }
+
+    /* ---------- MACHINES / GALLERY ---------- */
+    .machine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 880px) { .machine-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .machine-grid { grid-template-columns: 1fr; } }
+
+    .machine {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--black-2);
+      aspect-ratio: 4 / 3;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .machine:hover { transform: translateY(-4px); border-color: var(--yellow); }
+
+    /* placeholder styling — swap the <div class="placeholder"> for an <img> later */
+    .placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          rgba(248, 200, 27, 0.04) 0 12px,
+          transparent 12px 24px
+        ),
+        var(--black-3);
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+    }
+    .placeholder svg { color: var(--yellow); opacity: 0.7; }
+    .placeholder .ph-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      color: var(--cream);
+    }
+    .placeholder .ph-sub { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ---------- CATALOGUE BANNER ---------- */
+    .catalogue {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(248, 200, 27, 0.12), rgba(248, 200, 27, 0.02)),
+        var(--black-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .catalogue-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .catalogue h2 {
+      font-size: clamp(28px, 3.4vw, 40px);
+      color: var(--cream);
+    }
+    .catalogue h2 .accent { color: var(--yellow); }
+    .catalogue p { color: var(--muted); margin-top: 8px; max-width: 540px; }
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    .contact-card {
+      background: var(--black-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .contact-card .icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      border-radius: 12px;
+      background: rgba(248, 200, 27, 0.12);
+      color: var(--yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-card h4 {
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .contact-card .value {
+      font-size: 18px;
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .contact-card .value a { color: var(--cream); }
+    .contact-card .value a:hover { color: var(--yellow); }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 40px 0 32px;
+      border-top: 1px solid var(--line);
+      background: var(--black);
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-inner a { color: var(--muted); }
+    .footer-inner a:hover { color: var(--yellow); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <!-- swap src for the actual logo file, kept tiny here -->
+        <img src="logo.png" alt="Davies Print & Embroidery" />
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#machines">Machines</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">Clevedon &middot; North Somerset</span>
+        <h1 class="display hero-title">
+          Custom Print<br />
+          &amp; <span class="accent">Embroidery</span><br />
+          Done Right.
+        </h1>
+        <p class="lede">
+          From single tees to full team kits, workwear and promotional gear —
+          we print, press and stitch it in-house, with a finish you'll be proud
+          to put your name on.
+        </p>
+        <div class="cta-row">
+          <a href="#catalogue" class="btn btn-primary">
+            Browse the Catalogue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div>
+        <img src="logo.png" alt="Davies Print & Embroidery logo" class="hero-logo" />
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2 class="display">Two crafts. <span class="accent">One workshop.</span></h2>
+        <p>Everything from screen printing and DTF transfers to multi-head machine embroidery — produced on-site so we can keep an eye on every detail.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <!-- print icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          </div>
+          <h3>Garment Printing</h3>
+          <p>T-shirts, hoodies, polos, hi-vis and more — printed with vibrant, hard-wearing finishes that stand up to the wash.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <!-- thread icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+          </div>
+          <h3>Machine Embroidery</h3>
+          <p>Sharp, professional stitching on workwear, uniforms, caps and bags — perfect for logos that need to last.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MACHINES -->
+  <section id="machines">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our kit</span>
+        <h2 class="display">The <span class="accent">machines</span> behind the magic</h2>
+        <p>A peek into the workshop — the presses and embroidery machines that turn your artwork into finished garments.</p>
+      </div>
+
+      <div class="machine-grid">
+        <!-- replace each <div class="placeholder">…</div> with <img src="…"> when ready -->
+        <figure class="machine">
+          <div class="placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <div class="ph-title">Heat Press</div>
+            <div class="ph-sub">Image placeholder</div>
+          </div>
+        </figure>
+        <figure class="machine">
+          <div class="placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <div class="ph-title">Embroidery Machine</div>
+            <div class="ph-sub">Image placeholder</div>
+          </div>
+        </figure>
+        <figure class="machine">
+          <div class="placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <div class="ph-title">Screen Printer</div>
+            <div class="ph-sub">Image placeholder</div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGUE -->
+  <section id="catalogue" class="catalogue">
+    <div class="container catalogue-inner">
+      <div>
+        <h2 class="display">See the full <span class="accent">range</span>.</h2>
+        <p>Hundreds of garments, colours and styles — from premium tees to high-spec workwear. Have a browse and let us know what catches your eye.</p>
+      </div>
+      <a href="#" class="btn btn-primary">
+        View Catalogue
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="display">Let's <span class="accent">work</span> together.</h2>
+        <p>Drop us a line for a quote, or pop into the workshop — we're always happy to talk fabric, ink and thread.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h4>Phone</h4>
+          <div class="value"><a href="tel:01275340598">01275 340598</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h4>Email</h4>
+          <div class="value"><a href="mailto:info@daviesprint.co.uk">info@daviesprint.co.uk</a></div>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h4>Workshop</h4>
+          <div class="value">
+            22a Griffin Road<br />
+            Clevedon<br />
+            BS21 6HH
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; <span id="year"></span> Davies Print &amp; Embroidery. All rights reserved.</div>
+      <div>Sister company of <a href="https://www.harrissports.co.uk/" target="_blank" rel="noopener">Harris Sports</a>.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
